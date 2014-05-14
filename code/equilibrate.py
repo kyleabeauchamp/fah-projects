@@ -2,7 +2,8 @@ from simtk.openmm import app
 import simtk.openmm as mm
 from simtk import unit as u
 
-code = "3DMV_GLY-112-ALA"
+#code = "2LCB_GLY-112-ALA"
+code = "3DMV"
 
 padding = 1.0 * u.nanometers
 cutoff = 0.95 * u.nanometers
@@ -32,7 +33,7 @@ simulation.minimizeEnergy()
 
 simulation.context.setVelocitiesToTemperature(temperature)
 print('Equilibrating...')
-simulation.step(50000)
+simulation.step(100000)
 state = simulation.context.getState(getPositions=True, getParameters=True)
 
 positions = state.getPositions()
