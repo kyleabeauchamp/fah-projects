@@ -2,8 +2,10 @@ from simtk.openmm import app
 import simtk.openmm as mm
 from simtk import unit as u
 
-#code = "2LCB_GLY-112-ALA"
-code = "3DMV"
+code = "2LCB_GLY-112-ALA"
+#code = "3DMV_GLY-112-ALA"
+#code = "3DMV"
+#code = "2LCB"
 
 padding = 1.0 * u.nanometers
 cutoff = 0.95 * u.nanometers
