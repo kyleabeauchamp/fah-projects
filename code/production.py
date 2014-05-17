@@ -26,7 +26,7 @@ rank = int(sys.argv[1])
 time.sleep(rank)  # This makes sure that no two jobs run at the same time for RNG purpuses.
 
 
-pdb_filename = "./%s_equil.pdb" % code
+pdb_filename = "./boxes/%s_equil.pdb" % code
 dcd_filename = "./Trajectories/%s_%d.dcd" % (code, rank)
 log_filename = "./Trajectories/%s_%d.log" % (code, rank)
 
