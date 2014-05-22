@@ -4,7 +4,7 @@ from simtk import unit as u
 
 code = "3DMV"
 ff_name = "amber99sbnmr"
-water_name = 'tip3p-fb'
+water_name = 'tip4p-fb'
 
 which_forcefield = "%s.xml" % ff_name
 which_water = '%s.xml' % water_name
@@ -26,7 +26,7 @@ pressure = 1.0 * u.atmospheres
 pdb = app.PDBFile(pdb_filename)
 
 modeller = app.Modeller(pdb.topology, pdb.positions)
-modeller.addSolvent(ff, padding=padding)
+modeller.addSolvent(ff, padding=padding, model='tip4pew')
 
 topology = modeller.topology
 positions = modeller.positions
