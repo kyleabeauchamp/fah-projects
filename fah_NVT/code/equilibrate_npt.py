@@ -4,7 +4,7 @@ from simtk import unit as u
 
 code = "3DMV"
 ff_name = "amber99sbnmr"
-water_name = 'tip3p'
+water_name = 'tip3p-fb'
 
 which_forcefield = "%s.xml" % ff_name
 which_water = '%s.xml' % water_name
