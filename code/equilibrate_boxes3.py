@@ -17,18 +17,16 @@ which_water = '%s.xml' % water_name
 platform_name = "CUDA"
 timestep = 2.0 * u.femtoseconds
 cutoff = 0.95 * u.nanometers
-output_frequency = 500
+output_frequency = 5000
 n_steps = 2500000
 temperature = 300. 
 pressure = 1.0 * u.atmospheres
 
-rank = int(sys.argv[1])
-time.sleep(rank)  # This makes sure that no two jobs run at the same time for RNG purpuses.
 
 
-pdb_filename = "./final_boxes/%s_tip3p-fb.pdb" % code
-dcd_filename = "./equil_box/%s_%s.dcd" % (code, water_name)
-log_filename = "./equil_box/%s_%s.log" % (code, water_name)
+pdb_filename = "./equil_box/%s.pdb" % code
+dcd_filename = "./equil_box2/%s_%s.dcd" % (code, water_name)
+log_filename = "./equil_box2/%s_%s.log" % (code, water_name)
 
 traj = mdtraj.load(pdb_filename)
 top, bonds = traj.top.to_dataframe()
@@ -45,17 +43,21 @@ platform = mm.Platform.getPlatformByName(platform_name)
 system = ff.createSystem(topology, nonbondedMethod=app.PME, nonbondedCutoff=cutoff, constraints=app.HBonds)
 
 integrator = mm.LangevinIntegrator(temperature, 1.0 / u.picoseconds, timestep)
-system.addForce(mm.MonteCarloBarostat(pressure, temperature, 25))
 
 simulation = app.Simulation(topology, system, integrator, platform=platform)
 simulation.context.setPositions(positions)
+
+system.addForce(mm.MonteCarloBarostat(pressure, temperature, 25))
+
+
+simulation.minimizeEnergy()
+
 simulation.context.setVelocitiesToTemperature(temperature)
 
 
 print("Using platform %s" % simulation.context.getPlatform().getName())
 
-if os.path.exists(dcd_filename):
-    sys.exit()
+
 
 simulation.reporters.append(mdtraj.reporters.DCDReporter(dcd_filename, output_frequency))
 simulation.reporters.append(app.StateDataReporter(open(log_filename, 'w'), output_frequency, step=True, time=True, speed=True))
