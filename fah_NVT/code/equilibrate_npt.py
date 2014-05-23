@@ -10,6 +10,7 @@ which_forcefield = "%s.xml" % ff_name
 which_water = '%s.xml' % water_name
 
 pdb_filename = "./pdb_fixed/%s.pdb" % code
+out_pdb_filename = "./equil_npt/%s_%s_%s.pdb" % (code, ff_name, water_name)
 dcd_filename = "./equil_npt/%s_%s_%s.dcd" % (code, ff_name, water_name)
 log_filename = "./equil_npt/%s_%s_%s.log" % (code, ff_name, water_name)
 
@@ -44,5 +45,10 @@ simulation.context.setVelocitiesToTemperature(temperature)
 print('Equilibrating...')
 
 simulation.reporters.append(app.DCDReporter(dcd_filename, output_frequency))
+simulation.reporters.append(app.PDBReporter(out_pdb_filename, n_steps - 1))
 simulation.reporters.append(app.StateDataReporter(open(log_filename, 'w'), output_frequency, step=True, time=True, speed=True))
 simulation.step(n_steps)
+
+del simulation
+del system
+t = md.load(dcd_filename, top=out_pdb_filename)
