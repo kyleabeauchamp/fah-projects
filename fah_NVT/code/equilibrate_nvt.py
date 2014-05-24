@@ -10,10 +10,11 @@ water_name = 'tip3p'
 which_forcefield = "%s.xml" % ff_name
 which_water = '%s.xml' % water_name
 
-pdb_filename = "./pdb_fixed/%s.pdb" % code
-out_pdb_filename = "./equil_npt/%s_%s_%s.pdb" % (code, ff_name, water_name)
-dcd_filename = "./equil_npt/%s_%s_%s.dcd" % (code, ff_name, water_name)
-log_filename = "./equil_npt/%s_%s_%s.log" % (code, ff_name, water_name)
+pdb_filename = "./equil_npt/%s_%s_%s.pdb" % (code, ff_name, water_name)
+
+out_pdb_filename = "./equil_nvt/%s_%s_%s.pdb" % (code, ff_name, water_name)
+dcd_filename = "./equil_nvt/%s_%s_%s.dcd" % (code, ff_name, water_name)
+log_filename = "./equil_nvt/%s_%s_%s.log" % (code, ff_name, water_name)
 
 padding = 0.9 * u.nanometers
 cutoff = 0.95 * u.nanometers
@@ -23,20 +24,15 @@ n_steps = 2500000
 ff = app.ForceField(which_forcefield, which_water)
 
 temperature = 300.
-pressure = 1.0 * u.atmospheres
 
 pdb = app.PDBFile(pdb_filename)
 
-modeller = app.Modeller(pdb.topology, pdb.positions)
-modeller.addSolvent(ff, padding=padding, model='tip3p')
-
-topology = modeller.topology
-positions = modeller.positions
+topology = pdb.topology
+positions = pdb.positions
 
 system = ff.createSystem(topology, nonbondedMethod=app.PME, nonbondedCutoff=cutoff, constraints=app.HBonds)
 
 integrator = mm.LangevinIntegrator(temperature, 1.0 / u.picoseconds, 1.0 * u.femtoseconds)
-system.addForce(mm.MonteCarloBarostat(pressure, temperature, 25))
 simulation = app.Simulation(topology, system, integrator)
 simulation.context.setPositions(positions)
 print('Minimizing...')
@@ -45,15 +41,7 @@ simulation.minimizeEnergy()
 simulation.context.setVelocitiesToTemperature(temperature)
 print('Equilibrating...')
 
-simulation.step(25000)  # Don't even save the first 25 ps
-
 simulation.reporters.append(app.DCDReporter(dcd_filename, output_frequency))
 simulation.reporters.append(app.PDBReporter(out_pdb_filename, n_steps - 1))
 simulation.reporters.append(app.StateDataReporter(open(log_filename, 'w'), output_frequency, step=True, time=True, speed=True))
 simulation.step(n_steps)
-
-del simulation
-del system
-t = md.load(dcd_filename, top=out_pdb_filename)
-t0 = t[-1]
-t0.unitcell_lengths = t.unitcell_lengths.mean(0)
