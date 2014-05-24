@@ -14,7 +14,7 @@ out_pdb_filename = "./equil_npt/%s_%s_%s.pdb" % (code, ff_name, water_name)
 dcd_filename = "./equil_npt/%s_%s_%s.dcd" % (code, ff_name, water_name)
 log_filename = "./equil_npt/%s_%s_%s.log" % (code, ff_name, water_name)
 
-padding = 1.0 * u.nanometers
+padding = 0.9 * u.nanometers
 cutoff = 0.95 * u.nanometers
 output_frequency = 1000
 n_steps = 5000000
