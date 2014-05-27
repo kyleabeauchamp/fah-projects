@@ -3,6 +3,7 @@ import time
 from simtk.openmm import app
 import simtk.openmm as mm
 from simtk import unit as u
+from fah_parameters import *
 
 def write_file(filename, contents):
     with open(filename, 'w') as outfile:
@@ -15,11 +16,6 @@ water_name = 'tip3p'
 
 which_forcefield = "%s.xml" % ff_name
 which_water = '%s.xml' % water_name
-
-timestep = 2.0 * u.femtoseconds
-cutoff = 0.95 * u.nanometers
-temperature = 300. 
-friction = 0.25 / u.picoseconds
 
 rundir = "./RUNS/RUN0/"
 nclones = 400
@@ -56,7 +52,4 @@ for clone_index in range(nclones):
     state = simulation.context.getState(getPositions=True, getVelocities=True, getForces=True, getEnergy=True, getParameters=True, enforcePeriodicBox=True)
     state_filename = os.path.join(rundir, 'state%d.xml' % clone_index)
     serialized = mm.XmlSerializer.serialize(state)
-    #good_energy = 'PotentialEnergy="-385845.'
-    #bad_energy = 'PotentialEnergy="-383031.'  # Taken from running FAH client.
-    #serialized = serialized.replace(good_energy, bad_energy)
     write_file(state_filename, serialized)

@@ -2,6 +2,7 @@ import mdtraj as md
 from simtk.openmm import app
 import simtk.openmm as mm
 from simtk import unit as u
+from fah_parameters import *
 
 code = "3DMV"
 ff_name = "amber99sbildn"
@@ -16,14 +17,8 @@ out_pdb_filename = "./equil_nvt/%s_%s_%s.pdb" % (code, ff_name, water_name)
 dcd_filename = "./equil_nvt/%s_%s_%s.dcd" % (code, ff_name, water_name)
 log_filename = "./equil_nvt/%s_%s_%s.log" % (code, ff_name, water_name)
 
-padding = 0.9 * u.nanometers
-cutoff = 0.95 * u.nanometers
-output_frequency = 1000
-n_steps = 2500000
 
 ff = app.ForceField(which_forcefield, which_water)
-
-temperature = 300.
 
 pdb = app.PDBFile(pdb_filename)
 
@@ -32,7 +27,7 @@ positions = pdb.positions
 
 system = ff.createSystem(topology, nonbondedMethod=app.PME, nonbondedCutoff=cutoff, constraints=app.HBonds)
 
-integrator = mm.LangevinIntegrator(temperature, 1.0 / u.picoseconds, 1.0 * u.femtoseconds)
+integrator = mm.LangevinIntegrator(temperature, friction, equil_timestep)
 simulation = app.Simulation(topology, system, integrator)
 simulation.context.setPositions(positions)
 print('Minimizing...')
