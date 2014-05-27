@@ -3,7 +3,7 @@ from simtk.openmm import app
 import simtk.openmm as mm
 from simtk import unit as u
 
-code = "3DMV"
+code = "2HZ0"
 ff_name = "amber99sbildn"
 water_name = 'tip3p'
 
@@ -16,7 +16,6 @@ out_pdb_filename = "./equil_nvt/%s_%s_%s.pdb" % (code, ff_name, water_name)
 dcd_filename = "./equil_nvt/%s_%s_%s.dcd" % (code, ff_name, water_name)
 log_filename = "./equil_nvt/%s_%s_%s.log" % (code, ff_name, water_name)
 
-padding = 0.9 * u.nanometers
 cutoff = 0.95 * u.nanometers
 output_frequency = 1000
 n_steps = 2500000

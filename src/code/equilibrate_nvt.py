@@ -2,7 +2,7 @@ from simtk.openmm import app
 import simtk.openmm as mm
 from simtk import unit as u
 
-code = "1M14"
+code = "1FMK"
 ff_name = "amber99sbildn"
 water_name = 'tip3p'
 

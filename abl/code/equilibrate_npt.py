@@ -56,3 +56,4 @@ del system
 t = md.load(dcd_filename, top=out_pdb_filename)
 t0 = t[-1]
 t0.unitcell_lengths = t.unitcell_lengths.mean(0)
+t0.save(out_pdb_filename)

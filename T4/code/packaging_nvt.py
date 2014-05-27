@@ -36,6 +36,12 @@ positions = pdb.positions
 ff = app.ForceField(which_forcefield, which_water)
 system = ff.createSystem(topology, nonbondedMethod=app.PME, nonbondedCutoff=cutoff, constraints=app.HBonds)
 
+for force in system.getForces():
+    try:
+        force.setUseDispersionCorrection(False)
+    except AttributeError:
+        pass
+
 integrator = mm.LangevinIntegrator(temperature, friction, timestep)
 
 simulation = app.Simulation(topology, system, integrator)
@@ -50,7 +56,7 @@ for clone_index in range(nclones):
     state = simulation.context.getState(getPositions=True, getVelocities=True, getForces=True, getEnergy=True, getParameters=True, enforcePeriodicBox=True)
     state_filename = os.path.join(rundir, 'state%d.xml' % clone_index)
     serialized = mm.XmlSerializer.serialize(state)
-    good_energy = 'PotentialEnergy="-385845.'
-    bad_energy = 'PotentialEnergy="-383031.'  # Taken from running FAH client.
-    serialized = serialized.replace(good_energy, bad_energy)
+    #good_energy = 'PotentialEnergy="-385845.'
+    #bad_energy = 'PotentialEnergy="-383031.'  # Taken from running FAH client.
+    #serialized = serialized.replace(good_energy, bad_energy)
     write_file(state_filename, serialized)
