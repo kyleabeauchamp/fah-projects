@@ -4,7 +4,8 @@ import simtk.openmm as mm
 from simtk import unit as u
 from fah_parameters import *
 
-code = "3DMV"
+deviceid = 0
+
 ff_name = "amber99sbildn"
 water_name = 'tip3p'
 
@@ -13,10 +14,12 @@ which_water = '%s.xml' % water_name
 
 pdb_filename = "./OLDRUN0/system.pdb"
 
-out_pdb_filename = "./equil_npt/%s_%s_%s.pdb" % (code, ff_name, water_name)
-dcd_filename = "./equil_npt/%s_%s_%s.dcd" % (code, ff_name, water_name)
-log_filename = "./equil_npt/%s_%s_%s.log" % (code, ff_name, water_name)
+out_pdb_filename = "./equil_npt/equil_npt.pdb"
+dcd_filename = "./equil_npt/equil_npt.dcd"
+log_filename = "./equil_npt/equil_npt.log"
 
+platform = mm.Platform.getPlatformByName("CUDA")
+platform.setPropertyDefaultValue('CudaDeviceIndex', '%d' % deviceid) # select Cuda device index
 
 ff = app.ForceField(which_forcefield, which_water)
 
@@ -27,9 +30,10 @@ positions = pdb.positions
 
 system = ff.createSystem(topology, nonbondedMethod=app.PME, nonbondedCutoff=cutoff, constraints=app.HBonds)
 
-integrator = mm.LangevinIntegrator(temperature, friction, equil_timestep)
+integrator = mm.LangevinIntegrator(temperature, equil_friction, equil_timestep)
 system.addForce(mm.MonteCarloBarostat(pressure, temperature, barostat_frequency))
-simulation = app.Simulation(topology, system, integrator)
+
+simulation = app.Simulation(topology, system, integrator, platform=platform)
 simulation.context.setPositions(positions)
 print('Minimizing...')
 simulation.minimizeEnergy()
@@ -37,7 +41,7 @@ simulation.minimizeEnergy()
 simulation.context.setVelocitiesToTemperature(temperature)
 print('Equilibrating...')
 
-simulation.step(discard_steps)  # Don't even save the first 25 ps
+simulation.step(discard_steps)  # Don't even save the first XXX ps
 
 simulation.reporters.append(app.DCDReporter(dcd_filename, output_frequency))
 simulation.reporters.append(app.PDBReporter(out_pdb_filename, n_steps - 1))
