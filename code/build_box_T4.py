@@ -39,16 +39,7 @@ simulation.minimizeEnergy()
 simulation.context.setVelocitiesToTemperature(temperature)
 print('Equilibrating...')
 
-simulation.step(discard_steps)  # Don't even save the first XXX ps
-
 simulation.reporters.append(app.DCDReporter(dcd_filename, output_frequency))
 simulation.reporters.append(app.PDBReporter(out_pdb_filename, n_steps - 1))
 simulation.reporters.append(app.StateDataReporter(open(log_filename, 'w'), output_frequency, step=True, time=True, speed=True))
-simulation.step(n_steps)
-
-del simulation
-del system
-t = md.load(dcd_filename, top=out_pdb_filename)
-t0 = t[-1]
-t0.unitcell_lengths = t.unitcell_lengths.mean(0)
-t0.save(out_pdb_filename)
+simulation.step(5000)  # This system will be re-minimized and equilibrated later.
