@@ -15,6 +15,7 @@ which_water = '%s.xml' % water_name
 pdb_filename = "./OLDRUN0/system.pdb"
 
 out_pdb_filename = "./equil_npt/equil_npt.pdb"
+final_step_pdb_filename = "./equil_npt/equil_npt_final_step.pdb"
 dcd_filename = "./equil_npt/equil_npt.dcd"
 log_filename = "./equil_npt/equil_npt.log"
 
@@ -54,3 +55,8 @@ t = md.load(dcd_filename, top=out_pdb_filename)
 t0 = t[-1]
 t0.unitcell_lengths = t.unitcell_lengths.mean(0)
 t0.save(out_pdb_filename)
+
+del t
+del t0
+t = md.load(dcd_filename, top=out_pdb_filename)[-1]
+t.save(final_step_pdb_filename)

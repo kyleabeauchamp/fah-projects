@@ -23,7 +23,7 @@ nclones = 400
 system_filename = os.path.join(rundir, "system.xml")
 integrator_filename = os.path.join(rundir, "integrator.xml")
 
-pdb_filename = "./equil_npt/equil_npt.pdb"
+pdb_filename = "./equil_npt/equil_npt_final_step.pdb"
 
 pdb = app.PDBFile(pdb_filename)
 topology = pdb.topology
