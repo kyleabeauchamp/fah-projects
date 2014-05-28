@@ -4,18 +4,17 @@ import simtk.openmm as mm
 from simtk import unit as u
 from fah_parameters import *
 
-code = "3DMV"
 ff_name = "amber99sbildn"
 water_name = 'tip3p'
 
 which_forcefield = "%s.xml" % ff_name
 which_water = '%s.xml' % water_name
 
-pdb_filename = "./equil_npt/%s_%s_%s.pdb" % (code, ff_name, water_name)
+pdb_filename = "./equil_npt/equil_npt.pdb"
 
-out_pdb_filename = "./equil_nvt/%s_%s_%s.pdb" % (code, ff_name, water_name)
-dcd_filename = "./equil_nvt/%s_%s_%s.dcd" % (code, ff_name, water_name)
-log_filename = "./equil_nvt/%s_%s_%s.log" % (code, ff_name, water_name)
+out_pdb_filename = "./equil_nvt/equil_nvt.pdb"
+dcd_filename = "./equil_nvt/equil_nvt.dcd"
+log_filename = "./equil_nvt/equil_nvt.log"
 
 
 ff = app.ForceField(which_forcefield, which_water)

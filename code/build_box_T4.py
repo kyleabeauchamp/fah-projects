@@ -29,7 +29,7 @@ positions = modeller.positions
 
 system = ff.createSystem(topology, nonbondedMethod=app.PME, nonbondedCutoff=cutoff, constraints=app.HBonds)
 
-integrator = mm.LangevinIntegrator(temperature, friction, equil_timestep)
+integrator = mm.LangevinIntegrator(temperature, equil_friction, equil_timestep)
 system.addForce(mm.MonteCarloBarostat(pressure, temperature, barostat_frequency))
 
 platform = mm.Platform.getPlatformByName("CUDA")
@@ -42,5 +42,15 @@ simulation.minimizeEnergy()
 simulation.context.setVelocitiesToTemperature(temperature)
 print('Equilibrating...')
 
-simulation.reporters.append(app.PDBReporter(out_pdb_filename, 4999))
-simulation.step(5000)  # This system will be re-minimized and equilibrated later.
+n_steps = 10000
+
+simulation.reporters.append(app.PDBReporter(out_pdb_filename, n_steps - 1))
+simulation.reporters.append(app.DCDReporter(dcd_filename, output_frequency))
+simulation.step(n_steps)  # This system will be re-minimized and equilibrated later.
+
+del simulation
+del system
+t = md.load(dcd_filename, top=out_pdb_filename)
+t0 = t[-1]
+t0.unitcell_lengths = t.unitcell_lengths[-1]
+t0.save(out_pdb_filename)

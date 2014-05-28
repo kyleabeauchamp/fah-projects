@@ -4,7 +4,7 @@ import simtk.openmm as mm
 from simtk import unit as u
 from fah_parameters import *
 
-deviceid = 0
+deviceid = 2
 
 ff_name = "amber99sbildn"
 water_name = 'tip3p'
