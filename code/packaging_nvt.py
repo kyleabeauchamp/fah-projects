@@ -9,25 +9,23 @@ def write_file(filename, contents):
     with open(filename, 'w') as outfile:
         outfile.write(contents)
 
-code = "3DMV"
+rundir = "./RUNS_NVT/RUN0/"
+nclones = 500
+
+system_filename = os.path.join(rundir, "system.xml")
+integrator_filename = os.path.join(rundir, "integrator.xml")
+
+pdb_filename = "./equil_nvt/equil_nvt.pdb"
+
+pdb = app.PDBFile(pdb_filename)
+topology = pdb.topology
+positions = pdb.positions
 
 ff_name = "amber99sbildn"
 water_name = 'tip3p'
 
 which_forcefield = "%s.xml" % ff_name
 which_water = '%s.xml' % water_name
-
-rundir = "./RUNS/RUN0/"
-nclones = 400
-
-system_filename = os.path.join(rundir, "system.xml")
-integrator_filename = os.path.join(rundir, "integrator.xml")
-
-pdb_filename = "./equil_nvt/%s_%s_%s.pdb" % (code, ff_name, water_name)
-
-pdb = app.PDBFile(pdb_filename)
-topology = pdb.topology
-positions = pdb.positions
 
 ff = app.ForceField(which_forcefield, which_water)
 system = ff.createSystem(topology, nonbondedMethod=app.PME, nonbondedCutoff=cutoff, constraints=app.HBonds)

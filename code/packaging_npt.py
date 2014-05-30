@@ -9,8 +9,6 @@ def write_file(filename, contents):
     with open(filename, 'w') as outfile:
         outfile.write(contents)
 
-code = "3DMV"
-
 ff_name = "amber99sbildn"
 water_name = 'tip3p'
 
@@ -18,7 +16,7 @@ which_forcefield = "%s.xml" % ff_name
 which_water = '%s.xml' % water_name
 
 rundir = "./RUNS_NPT/RUN0/"
-nclones = 400
+nclones = 500
 
 system_filename = os.path.join(rundir, "system.xml")
 integrator_filename = os.path.join(rundir, "integrator.xml")
