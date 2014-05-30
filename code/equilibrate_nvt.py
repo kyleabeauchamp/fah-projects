@@ -4,6 +4,11 @@ import simtk.openmm as mm
 from simtk import unit as u
 from fah_parameters import *
 
+#deviceid = 2
+#platform = mm.Platform.getPlatformByName("CUDA")
+#platform.setPropertyDefaultValue('CudaDeviceIndex', '%d' % deviceid) # select Cuda device index
+platform = mm.Platform.getPlatformByName("OpenCL")
+
 ff_name = "amber99sbildn"
 water_name = 'tip3p'
 
@@ -27,7 +32,7 @@ positions = pdb.positions
 system = ff.createSystem(topology, nonbondedMethod=app.PME, nonbondedCutoff=cutoff, constraints=app.HBonds)
 
 integrator = mm.LangevinIntegrator(temperature, friction, equil_timestep)
-simulation = app.Simulation(topology, system, integrator)
+simulation = app.Simulation(topology, system, integrator, platform=platform)
 simulation.context.setPositions(positions)
 print('Minimizing...')
 simulation.minimizeEnergy()

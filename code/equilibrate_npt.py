@@ -19,8 +19,9 @@ final_step_pdb_filename = "./equil_npt/equil_npt_final_step.pdb"
 dcd_filename = "./equil_npt/equil_npt.dcd"
 log_filename = "./equil_npt/equil_npt.log"
 
-platform = mm.Platform.getPlatformByName("CUDA")
-platform.setPropertyDefaultValue('CudaDeviceIndex', '%d' % deviceid) # select Cuda device index
+platform = mm.Platform.getPlatformByName("OpenCL")
+#platform = mm.Platform.getPlatformByName("CUDA")
+#platform.setPropertyDefaultValue('CudaDeviceIndex', '%d' % deviceid) # select Cuda device index
 
 ff = app.ForceField(which_forcefield, which_water)
 
