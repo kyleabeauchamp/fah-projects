@@ -11,7 +11,9 @@ siegetank.login(my_token)
 
 RUNS_PATH = "/home/kyleb/src/choderalab/FAHNVT/%s/RUNS_NPT/RUN0/" % system_name
 
-opts = {'description': '%s NPT' % system_name, 'steps_per_frame': 125000}
+opts = {'description': '%s NPT v2.0  In this project we are running simulations of the important cancer-related protein, src kinase, which will help to provide insight into how we might eventually develop more effective therapies for the various types of cancer.' % system_name,
+    'steps_per_frame': 125000}
+
 target = siegetank.add_target(options=opts, engines=['openmm_601_opencl', 'openmm_601_cpu'])
 
 system_filename = os.path.join(RUNS_PATH, "system.xml")
