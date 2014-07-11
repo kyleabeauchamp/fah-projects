@@ -7,8 +7,8 @@ n_clones = 500  # To do: look this up via glob
 project = 10466
 codename = {10466:"T4", 10467:"src", 10468:"abl", 10469:"EGFR"}[project]
 
-min_num_frames = 500
-stride = 1
+min_num_frames = 800
+stride = 4
 
 input_data_path = "/data/choderalab/fah/analysis/%d/concatenated_trajectories/" % project
 output_data_path = "/data/choderalab/fah/analysis/%d/protein_trajectories/" % project
@@ -29,7 +29,6 @@ for run in range(n_runs):
             continue
         if len(md.formats.HDF5TrajectoryFile(in_filename)) < min_num_frames:
             continue
-        trj = md.load(in_filename)[::stride]
-        trj.restrict_atoms(atom_indices)
+        trj = md.load(in_filename, atom_indices=atom_indices, stride=stride)
         out_filename = os.path.join(output_data_path, "run%d-clone%d.h5" % (run, clone))
         trj.save(out_filename)
