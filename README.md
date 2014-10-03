@@ -1,4 +1,4 @@
-# FAH NVT Projects
+# FAH Projects
 
 ## Project index
 
