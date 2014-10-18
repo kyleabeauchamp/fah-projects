@@ -21,7 +21,7 @@ In this project we are running simulations of the important cancer-related prote
 ### 10472: Abl (single snapshot)
 In this project we are running simulations of the important cancer-related protein, abl kinase, which will help to provide insight into how we might eventually develop more effective therapies for the various types of cancer.
 * Kyle A. Beauchamp
-* Blog post (will be written by Sonya with Danny image)
+* Blog post: https://folding.stanford.edu/home/investigating-conformations-accessible-by-abl-kinase-drug-target-for-chronic-myelogenous-leukemia-project-10472/
 * 14939 points
 * 11.5 deadline
 * 8.9 timeout
