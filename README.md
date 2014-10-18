@@ -34,7 +34,7 @@ In this project we are running simulations of the important cancer-related prote
 * 13.2 deadline
 * 10.2 timeout
 
-### 10474: NSD1 (single snapshot) (Accept Only)
+### 10474: NSD1 (single snapshot) (Accept Only, issue with initial structure)
 In this project we are running simulations of the methyltransferase NSD1, a cancer-related protein.
 * Kyle A. Beauchamp
 * Blog post: preview https://folding.stanford.edu/home/?p=10539&preview=true
