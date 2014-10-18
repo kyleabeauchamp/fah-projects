@@ -37,7 +37,7 @@ In this project we are running simulations of the important cancer-related prote
 ### 10474: NSD1 (single snapshot) (Accept Only)
 In this project we are running simulations of the methyltransferase NSD1, a cancer-related protein.
 * Kyle A. Beauchamp
-* Blog post (will be written by John)
+* Blog post: preview https://folding.stanford.edu/home/?p=10539&preview=true
 * 8341 points
 * 6.44 deadline
 * 4.97 timeout
@@ -45,7 +45,7 @@ In this project we are running simulations of the methyltransferase NSD1, a canc
 ### 10475: NSD2 (single snapshot)
 In this project we are running simulations of the methyltransferase NSD2, a cancer-related protein.
 * Kyle A. Beauchamp
-* Blog post (will be written by John)
+* Blog post: preview https://folding.stanford.edu/home/?p=10539&preview=true
 * 8364 points
 * 6.46 deadline
 * 4.99 timeout
@@ -53,7 +53,7 @@ In this project we are running simulations of the methyltransferase NSD2, a canc
 ### 10476: SETD2 (single snapshot)
 In this project we are running simulations of the methyltransferase SETD2, a cancer-related protein.
 * Kyle A. Beauchamp
-* Blog post (will be written by John)
+* Blog post: preview https://folding.stanford.edu/home/?p=10539&preview=true
 * 8185 points
 * 6.32 deadline
 * 4.88 timeout
