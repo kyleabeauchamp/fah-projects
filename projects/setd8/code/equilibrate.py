@@ -4,19 +4,19 @@ import simtk.openmm as mm
 from simtk import unit as u
 from fah_parameters import *
 
-
+pdbid = "4IJ8"
 ff_name = "amber99sbildn"
 water_name = 'tip3p'
 
 which_forcefield = "%s.xml" % ff_name
 which_water = '%s.xml' % water_name
 
-pdb_filename = "./4IJ8_fixed.pdb"
+pdb_filename = "./%s_box.pdb" % pdbid
 
-out_pdb_filename = "./equil/equil.pdb"
-final_step_pdb_filename = "./equil/equil_final_step.pdb"
-dcd_filename = "./equil/equil.dcd"
-log_filename = "./equil/equil.log"
+out_pdb_filename = "./equil/%s.pdb" % pdbid
+final_step_pdb_filename = "./equil/%s_final_step.pdb" % pdbid
+dcd_filename = "./equil/%s.dcd" % pdbid
+log_filename = "./equil/%s.log" % pdbid
 
 ff = app.ForceField(which_forcefield, which_water)
 
@@ -42,7 +42,7 @@ simulation.step(discard_steps)  # Don't even save the first XXX ps
 
 simulation.reporters.append(app.DCDReporter(dcd_filename, output_frequency))
 simulation.reporters.append(app.PDBReporter(out_pdb_filename, n_steps - 1))
-simulation.reporters.append(app.StateDataReporter(open(log_filename, 'w'), output_frequency, step=True, time=True, speed=True))
+simulation.reporters.append(app.StateDataReporter(open(log_filename, 'w'), output_frequency, step=True, time=True, speed=True, potentialEnergy=True, temperature=True, density=True))
 simulation.step(n_steps)
 
 del simulation
