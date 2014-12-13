@@ -58,6 +58,15 @@ In this project we are running simulations of the methyltransferase SETD2, a can
 * 6.32 deadline
 * 4.88 timeout
 
+
+### 10477: SETD8 (single snapshot)
+In this project we are running simulations of the methyltransferase SETD8, a cancer-related protein.
+* Kyle A. Beauchamp
+* 13018 points
+* 10.0 deadline
+* 7.76 timeout
+* ./projects/setd8/
+
 ### ?????: Ras (MSMSeeder2)
 * Patrick Grinaway
 * Blog post (will be written by Patrick)
