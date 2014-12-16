@@ -59,13 +59,22 @@ In this project we are running simulations of the methyltransferase SETD2, a can
 * 4.88 timeout
 
 
-### 10477: SETD8 (two snapshots)
+### 10477: SETD8 (two structures, slightly difference sequences)
 In this project we are running simulations of the methyltransferase SETD8, a cancer-related protein.
 * Kyle A. Beauchamp
 * 13018 points
 * 10.0 deadline
 * 7.76 timeout
-* ./projects/setd8/
+* ./projects/setd8-p10467/
+
+### 10478: SETD8 (two structures, consensus sequence)
+In this project we are running simulations of the methyltransferase SETD8, a cancer-related protein.
+* Kyle A. Beauchamp
+* 11666 points
+* 9.01 deadline
+* 6.95 timeout
+* ./projects/setd8-p10468/
+
 
 ### ?????: Ras (MSMSeeder2)
 * Patrick Grinaway
