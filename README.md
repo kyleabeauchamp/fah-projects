@@ -77,6 +77,11 @@ In this project we are running simulations of the methyltransferase SETD8, a can
 
 ### 10479-10483
 Same as 10484-10488, but halted due to some setup issues.  
+10479 (DDR1)
+10480 (KSYK)
+10481 (CSK21)
+10482 (ERBB2)
+10483 (MP2K1)
 
 ### 10484: DDR1 (one structure)
 In this project we are running simulations of protein kinase DDR1, a cancer-related protein.
