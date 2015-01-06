@@ -75,8 +75,10 @@ In this project we are running simulations of the methyltransferase SETD8, a can
 * 6.95 timeout
 * ./projects/setd8-p10478/
 
+### 10479-10483
+Same as 10484-10488, but halted due to some setup issues.  
 
-### 10479: DDR1 (one structure)
+### 10484: DDR1 (one structure)
 In this project we are running simulations of protein kinase DDR1, a cancer-related protein.
 * Kyle A. Beauchamp
 * 15732 points
@@ -85,7 +87,7 @@ In this project we are running simulations of protein kinase DDR1, a cancer-rela
 * ./projects/DDR1_HUMAN_D0-10479/
 
 
-### 10480: KSYK (Three structures)
+### 10485: KSYK (Three structures)
 In this project we are running simulations of protein kinase KSYK, a cancer-related protein.
 * Kyle A. Beauchamp
 * 13206 points
@@ -93,7 +95,7 @@ In this project we are running simulations of protein kinase KSYK, a cancer-rela
 * 7.87 timeout
 * ./projects/KSYK_HUMAN_D0-10480/
 
-### 10481: CSK21 (one structure)
+### 10486: CSK21 (one structure)
 In this project we are running simulations of protein kinase CSK21, a cancer-related protein.
 * Kyle A. Beauchamp
 * 17505 points
@@ -101,7 +103,7 @@ In this project we are running simulations of protein kinase CSK21, a cancer-rel
 * 10.42 timeout
 * ./projects/CSK21_HUMAN_D0-10481/
 
-### 10482: ERBB2 (two structures)
+### 10487: ERBB2 (two structures)
 In this project we are running simulations of protein kinase ERBB2, a cancer-related protein.
 * Kyle A. Beauchamp
 * 13645 points
@@ -109,7 +111,7 @@ In this project we are running simulations of protein kinase ERBB2, a cancer-rel
 * 8.12 timeout
 * ./projects/ERBB2_HUMAN_D0-10482/
 
-### 10483: MP2K1 (four structures)
+### 10488: MP2K1 (four structures)
 In this project we are running simulations of protein kinase MP2K1, a cancer-related protein.
 * Kyle A. Beauchamp
 * 17589 points
