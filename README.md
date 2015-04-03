@@ -124,6 +124,15 @@ In this project we are running simulations of protein kinase MP2K1, a cancer-rel
 * 10.48 timeout
 * ./projects/MP2K1_HUMAN_D0-10483/
 
+### 10489: SETD8 (one structure, consensus sequence, same atoms as 10478)
+In this project we are running simulations of the methyltransferase SETD8, a cancer-related protein.
+* Kyle A. Beauchamp
+* 11666 points
+* 9.01 deadline
+* 6.95 timeout
+* ./projects/setd8-p10489/
+
+
 
 ### ?????: Ras (MSMSeeder2)
 * Patrick Grinaway
