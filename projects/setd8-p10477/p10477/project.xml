@@ -13,7 +13,7 @@
     <natoms>48975</natoms>
     <xtcFreq>125000</xtcFreq> <!-- how often to write out frames -->
 
-    <min-core-version v="1"/> <!-- yutong will let you know when to change this -->
+    <min-core-version v="3"/> <!-- yutong will let you know when to change this -->
     <contact v="kyleb"/>
 
     <accept_mode v="assign"/>
