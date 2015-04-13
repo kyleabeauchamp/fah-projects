@@ -2,6 +2,39 @@
 
 ## Project index
 
+### 13000, 13001: Core17 EGFR
+17123 points
+12.7 deadline
+9.86 timeout
+
+### 10466: T4 lysozyme L99A NVT
+In this project we are running simulations of the protein T4 Lysozyme L99A, which has been a key model system in understanding how small drugs might bind to proteins.
+* Kyle A. Beauchamp
+* 7819 points
+* 6.03 deadline
+* 4.66 timeout
+
+### 10467: Src (single snapshot) NVT
+In this project we are running simulations of the important cancer-related protein, src kinase, which will help to provide insight into how we might eventually develop more effective therapies for the various types of cancer.
+* Kyle A. Beauchamp
+* 14755 points
+* 11.4 deadline
+* 8.8 timeout
+
+### 10468: Abl (single snapshot) NVT
+In this project we are running simulations of the important cancer-related protein, abl kinase, which will help to provide insight into how we might eventually develop more effective therapies for the various types of cancer.
+* Kyle A. Beauchamp
+* 14939 points
+* 11.5 deadline
+* 8.9 timeout
+
+### 10469: EGFR (single snapshot) NVT
+In this project we are running simulations of the important cancer-related protein, EGFR, which will help to provide insight into how we might eventually develop more effective therapies for the various types of cancer associated with EGFR mutations.
+* Kyle A. Beauchamp
+* 17123 points
+* 13.2 deadline
+* 10.2 timeout
+
 ### 10470: T4 lysozyme L99A
 In this project we are running simulations of the protein T4 Lysozyme L99A, which has been a key model system in understanding how small drugs might bind to proteins.
 * Kyle A. Beauchamp
