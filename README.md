@@ -179,6 +179,7 @@ In this project we are running simulations of the methyltransferase SETD8, a can
 ### 10491: human mTOR (kinase domain)
 * John Chodera (seeded by Danny)
 * Blog post will be written by John Chodera
+* 21461 points
 ```
 MTOR_HUMAN_D0:
 * Sequence span of PI3K/PI4K domain
