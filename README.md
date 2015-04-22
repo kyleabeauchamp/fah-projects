@@ -175,3 +175,24 @@ In this project we are running simulations of the methyltransferase SETD8, a can
 * Sonya Hanson (seeded by Danny)
 * Blog post (will be written by Sonya)
 
+### 10491: human mTOR (kinase domain)
+* John Chodera (seeded by Danny)
+* Blog post will be written by John Chodera
+```
+MTOR_HUMAN_D0:
+* Sequence span of PI3K/PI4K domain
+* residues 2182-2516 (UniProt sequence coordinates)
+* 80983 atoms
+* plfah2:/data/choderalab/fah/initial-models/projects/MTOR_HUMAN_D0
+```
+### 10492: human mTOR (FAT + kinase domain)
+* John Chodera (seeded by Danny)
+* Blog post will be written by John Chodera
+```
+MTOR_HUMAN_4JSN:
+* Sequence span of 4JSN structure
+* residues 1376-2549 (UniProt sequence coordinates)
+* 277543 atoms
+* plfah1:/data/choderalab/fah/initial-models/projects/MTOR_HUMAN_4JSN
+```
+
