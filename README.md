@@ -20,6 +20,7 @@ In this project we are running simulations of the important cancer-related prote
 * 14755 points
 * 11.4 deadline
 * 8.8 timeout
+* 55679 atoms
 
 ### 10468: Abl (single snapshot) NVT
 In this project we are running simulations of the important cancer-related protein, abl kinase, which will help to provide insight into how we might eventually develop more effective therapies for the various types of cancer.
