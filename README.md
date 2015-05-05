@@ -9,6 +9,7 @@
 
 ### 10466: T4 lysozyme L99A NVT
 In this project we are running simulations of the protein T4 Lysozyme L99A, which has been a key model system in understanding how small drugs might bind to proteins.
+Note: Initially 1 RUN and 500 CLONES, on May 5, 2015 I added a second RUN which should be identical to RUN0.  
 * Kyle A. Beauchamp
 * 7819 points
 * 6.03 deadline
