@@ -177,7 +177,38 @@ In this project we are running simulations of the methyltransferase SETD8, a can
 * Sonya Hanson (seeded by Danny)
 * Blog post (will be written by Sonya)
 
-### 10491: human mTOR (kinase domain)
+### 10491: human mTOR (kinase domain) - deprecated
+* John Chodera (seeded by Danny)
+* Blog post will be written by John Chodera
+* 21461 points
+```
+MTOR_HUMAN_D0:
+* Sequence span of PI3K/PI4K domain
+* residues 2182-2516 (UniProt sequence coordinates)
+* 80983 atoms
+* plfah2:/data/choderalab/fah/initial-models/projects/MTOR_HUMAN_D0
+* core 0x21 version 0.0.5/6/7
+```
+* This project had abnormally low PPD
+* This project had too many frames/WU, which caused slowdowns due to CPU sanity checks
+* This project had many WU failures due to the deployment of a corrupted core 0x21 from @peastman and subsequent attempts to revert.
+
+### 10492: human mTOR (FAT + kinase domain) - deprecated
+* John Chodera (seeded by Danny)
+* Blog post will be written by John Chodera
+```
+MTOR_HUMAN_4JSN:
+* Sequence span of 4JSN structure
+* residues 1376-2549 (UniProt sequence coordinates)
+* 277543 atoms
+* plfah1:/data/choderalab/fah/initial-models/projects/MTOR_HUMAN_4JSN
+* core 0x21 version 0.0.5/6/7
+```
+* This project had abnormally low PPD
+* This project had too many frames/WU, which caused slowdowns due to CPU sanity checks
+* This project had many WU failures due to the deployment of a corrupted core 0x21 from @peastman and subsequent attempts to revert.
+
+### 10493: human mTOR (kinase domain)
 * John Chodera (seeded by Danny)
 * Blog post will be written by John Chodera
 * 21461 points
@@ -188,7 +219,9 @@ MTOR_HUMAN_D0:
 * 80983 atoms
 * plfah2:/data/choderalab/fah/initial-models/projects/MTOR_HUMAN_D0
 ```
-### 10492: human mTOR (FAT + kinase domain)
+* Not set up yet
+
+### 10494: human mTOR (FAT + kinase domain)
 * John Chodera (seeded by Danny)
 * Blog post will be written by John Chodera
 ```
@@ -198,4 +231,4 @@ MTOR_HUMAN_4JSN:
 * 277543 atoms
 * plfah1:/data/choderalab/fah/initial-models/projects/MTOR_HUMAN_4JSN
 ```
-
+* Not set up yet
